@@ -1,0 +1,16 @@
+[
+  {
+    "categoria": "Diseño",
+    "enlaces": [
+      {"nombre": "Figma", "url": "https://www.figma.com", "descripcion": "Herramienta líder de diseño UI/UX."}, 
+      {"nombre": "Coolors", "url": "https://coolors.co", "descripcion": "Generador de paletas de colores rápidas."}
+    ]
+  },
+  {
+    "categoria": "Desarrollo",
+    "enlaces": [
+      {"nombre": "MDN Web Docs", "url": "https://developer.mozilla.org", "descripcion": "Documentación esencial para desarrollo web."},
+      {"nombre": "React Docs", "url": "https://reactjs.org", "descripcion": "Guía oficial para aprender y usar React."}
+    ]
+  }
+]
