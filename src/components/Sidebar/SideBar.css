@@ -1,0 +1,67 @@
+/* src/components/Sidebar/Sidebar.css */
+
+/* Contenedor principal de la barra lateral */
+.sidebar-container {
+  width: 250px; 
+  background-color: white;
+  padding: 20px 0; 
+  font-family: Arial, sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); 
+}
+
+
+.sidebar-section-title {
+  color: #7a7a7a; /* Color gris claro */
+  font-size: 0.85em;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 15px 25px 5px; 
+  margin: 0;
+}
+
+/* Lista general */
+.sidebar-list {
+  list-style: none; 
+  padding: 0;
+  margin: 0;
+}
+
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding: 10px 25px; /* Espacio interno para el ítem */
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 0.95em;
+  font-weight: 500;
+  
+  /* Estilo base del texto */
+  white-space: nowrap;
+}
+
+/* Efecto hover (al pasar el ratón) */
+.sidebar-item:hover {
+  background-color: #f0f0f0; /* Fondo ligeramente gris al pasar el ratón */
+}
+
+/* Estado activo (el elemento seleccionado) */
+.sidebar-item.active {
+  background-color: #e0e6f6; 
+  color: #31529d; 
+  font-weight: 600; 
+}
+
+/* Icono dentro del elemento */
+.sidebar-icon {
+  margin-right: 12px;
+  font-size: 1.1em;
+}
+
+/* Texto del elemento */
+.sidebar-text {
+  /* No necesita estilos específicos, toma el color del .sidebar-item */
+}

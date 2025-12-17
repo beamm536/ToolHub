@@ -7,6 +7,5 @@ import githubBtn from './components/githubBtn.jsx'
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <App />
-    <githubBtn />
   </StrictMode>,
 )
