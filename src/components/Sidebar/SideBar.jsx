@@ -1,64 +1,98 @@
-// src/components/Sidebar/Sidebar.jsx
-
 import React from 'react';
 import './Sidebar.css';
 
-// Componente para cada elemento individual de la lista
-const SidebarItem = ({ icon, text, isActive }) => {
-  const itemClass = isActive ? 'sidebar-item active' : 'sidebar-item';
+const categoryIcons = {
+  'Panel principal': '🏠',
+  'Diseño': '🎨',
+  'Desarrollo Web': '💻',
+  'Inteligencia Artificial': '🧠',
+  'Testing y Datos de Prueba': '💳',
+  'Ciberseguridad': '🔐'
+};
+
+// Componente para cada elemento del sidebar, que sean clicables
+const SidebarItem = ({ text, isActive, onClick }) => {
+  const icon = categoryIcons[text] || '🔗';
+
   return (
-    <li className={itemClass}>
-      {/* El icono (usamos un simple ⚡ para el ejemplo) */}
-      <span className="sidebar-icon" role="img" aria-label="icono">
-        {icon || '⚡'}
+    <li
+      className={`sidebar-item ${isActive ? 'active' : ''}`}
+      onClick={onClick}
+    >
+      {/* el item emite una accion, => transmite un estado */}
+      <span className="sidebar-icon" role="img" aria-label={text}>
+        {icon}
       </span>
       <span className="sidebar-text">{text}</span>
     </li>
   );
 };
 
-
-const Sidebar = () => {
-  // Estructura de datos replicando la imagen
+//entre los parentesis le definimos las props que vamos a recibir, que pasamos desde el componente padre(App.jsx)
+const Sidebar = ({ categorias, subcategorias, categoriaActiva, subcategoriaActiva, setCategoriaActiva, setSubcategoriaActiva }) => {
   const menuData = [
     {
       title: 'Navegación',
       items: [
-        { text: 'Panel principal', icon: '⚡', active: true }, // El elemento activo
-      ],
-    },
-    {
-      title: 'Herramientas',
-      items: [
-        { text: 'Conversor de color', icon: '⚡' },
-        { text: 'Conversor de código', icon: '⚡' },
-        { text: 'Imágenes', icon: '⚡' },
-        { text: 'Paletas', icon: '⚡' },
-        { text: 'Componentes', icon: '⚡' },
-      ],
-    },
+        { text: 'Panel principal' }
+      ]
+    }
   ];
 
   return (
     <div className="sidebar-container">
-      {menuData.map((section, sectionIndex) => (
-        <React.Fragment key={sectionIndex}>
-          {/* Título de la sección (Navegación, Herramientas) */}
-          <h5 className="sidebar-section-title">{section.title}</h5>
-          
-          {/* Lista de elementos */}
+
+      {/* ===== Navegación ===== */}
+      <h5 className="sidebar-section-title">
+        Navegación
+      </h5>
+
+      <ul className="sidebar-list">
+        <SidebarItem
+          text="Panel principal"
+          isActive={categoriaActiva === 'Panel principal'}
+          onClick={() => setCategoriaActiva('Panel principal')}
+        />
+      </ul>
+
+      {/* ===== Categorías ===== */}
+      <h5 className="sidebar-section-title">
+        Categorías
+      </h5>
+
+      <ul className="sidebar-list">
+        {categorias
+          .filter(cat => cat !== 'Panel principal')
+          .map((categoria) => (
+            <SidebarItem
+              key={categoria}
+              text={categoria}
+              isActive={categoriaActiva === categoria}
+              onClick={() => setCategoriaActiva(categoria)}
+            />
+          ))}
+      </ul>
+
+      {/* ===== SUBCategorías ===== */}
+      {subcategorias.length > 0 && (
+        <>
+          <h5 className="sidebar-section-title">
+            Subcategorías
+          </h5>
+
           <ul className="sidebar-list">
-            {section.items.map((item, itemIndex) => (
+            {subcategorias.map((sub) => (
               <SidebarItem
-                key={itemIndex}
-                icon={item.icon}
-                text={item.text}
-                isActive={item.active}
+                key={sub}
+                text={sub}
+                isActive={subcategoriaActiva === sub}
+                onClick={() => setSubcategoriaActiva(sub)}
               />
             ))}
           </ul>
-        </React.Fragment>
-      ))}
+        </>
+      )}
+
     </div>
   );
 };
