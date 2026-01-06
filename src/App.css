@@ -18,6 +18,15 @@
     color: #333;
 }
 
+.container-busqueda {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
+
 .parent {
   display: grid;
   /* minmax(370px, 1fr) es un buen tamaño para una tarjeta ancha */

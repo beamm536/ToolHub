@@ -101,11 +101,7 @@ const App = () => {
         /> */}
 
 
-<BarraBusqueda
-  value={textoBusqueda}
-  onChange={setTextoBusqueda}
-  onReset={() => setTextoBusqueda('')}
-/>
+
 
 
         <Sidebar
@@ -121,7 +117,17 @@ const App = () => {
 
         <div className="main-content-area">
 
-          <h3>Catalogo de herramientas</h3>
+          <div className="container-busqueda">
+            <h3>Catalogo de herramientas</h3>
+          
+            <BarraBusqueda
+              value={textoBusqueda}
+              onChange={setTextoBusqueda}
+              onReset={() => setTextoBusqueda('')}
+            />
+          </div>
+          
+
           <div className="parent">
             {/*hacemos uso del metodo .map() para iterar sobre cada componente uqe va a ir en las tarjeras*/}
             {/*por cada item del data.json una tarjeta que se crea*/}

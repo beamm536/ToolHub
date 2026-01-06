@@ -41,11 +41,11 @@ const StyledWrapper = styled.div`
   /* this is a recreation of twitter search in css */
   .form {
     --input-text-color: #fff;
-    --input-bg-color: #283542;
+    --input-bg-color:#f1f5f9;
     --focus-input-bg-color: transparent;
     --text-color: #949faa;
     --active-color: #1b9bee;
-    --width-of-input: 200px;
+    --width-of-input: 300px;
     --inline-padding-of-input: 1.2em;
     --gap: 0.9rem;
   }
